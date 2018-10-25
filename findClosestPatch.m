@@ -20,7 +20,6 @@ function selected_patch = findClosestPatch(ref_patches,original_pic,error_tolera
 		end
 	end
 	
-	% min_error = min(min(error_patch))*(1+error_tolerance);
 	min_error = min_error*(1+error_tolerance);
 
 	[close_patches_i, close_patches_j] = find(error_patch<min_error);

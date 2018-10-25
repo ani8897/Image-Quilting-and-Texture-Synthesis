@@ -10,7 +10,7 @@ to_save = 0;
 
 %% Loading the pictures
 %% For GIF pictures, need to convert from index to rgb
-[texture_3_pic,map] = imread('paper_data/text3.gif');
+[texture_3_pic,map] = imread('paper_data/3.gif');
 texture_3_pic = ind2rgb(texture_3_pic,map);
 
 texture_4_pic = imread('our_data/strawberry.jpg');
@@ -21,7 +21,7 @@ file_name = "Result";
 title_name = "Modified Pic";
 
 %% Defining the parameters of our algorithm
-patch_size = 24;
+patch_size = 60;
 overlap_size = patch_size/6;
 net_patch_size = patch_size-overlap_size;
 error_tolerance = 0.1;
