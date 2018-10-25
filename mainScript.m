@@ -9,13 +9,15 @@ my_color_scale = [col_scale,col_scale,col_scale];
 to_save = 0;
 
 %% Loading the pictures
+
 %% For GIF pictures, need to convert from index to rgb
-[texture_3_pic,map] = imread('paper_data/3.gif');
-texture_3_pic = ind2rgb(texture_3_pic,map);
+[texture_paper_pic,map] = imread('paper_data/3.gif');
+texture_paper_pic = ind2rgb(texture_paper_pic,map);
+% original_pic = double(texture_paper_pic);
 
-texture_4_pic = imread('our_data/strawberry.jpg');
+texture_our_pic = imread('our_data/pommo.jpg');
+original_pic = double(texture_our_pic)/255.0;
 
-original_pic = double(texture_4_pic)/255.0;
 [h,w,num_chan] = size(original_pic);
 file_name = "Result";
 title_name = "Modified Pic";

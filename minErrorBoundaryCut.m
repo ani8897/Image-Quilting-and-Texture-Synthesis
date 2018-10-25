@@ -32,8 +32,6 @@ function final_patch = minErrorBoundaryCut(ref_patches,selected_patch,overlap_si
 			final_patch(patch_size,1:prev_ind-1,:) = left_patch(patch_size,patch_size - overlap_size + 1:patch_size - overlap_size + prev_ind-1,:);
 			final_patch(patch_size,prev_ind:overlap_size,:) = selected_patch(patch_size,prev_ind:overlap_size,:);	
 		end
-		% final_overlap(patch_size,1:prev_ind-1,:) = left_patch(patch_size,1:prev_ind-1,:);
-		% final_overlap(patch_size,prev_ind:overlap_size,:) = selected_patch(patch_size,prev_ind:overlap_size,:);
 		for i = patch_size-1:-1:1
 			[min_val, prev_ind] = min(abs(E(i,:) - (min_E-e(i+1,prev_ind))));
 			min_E = E(i,prev_ind);
@@ -43,10 +41,7 @@ function final_patch = minErrorBoundaryCut(ref_patches,selected_patch,overlap_si
 				final_patch(i,1:prev_ind-1,:) = left_patch(i,patch_size - overlap_size + 1:patch_size - overlap_size + prev_ind-1,:);
 				final_patch(i,prev_ind:overlap_size,:) = selected_patch(i,prev_ind:overlap_size,:);	
 			end
-			% final_overlap(i,1:prev_ind-1,:) = left_patch(i,1:prev_ind-1,:);
-			% final_overlap(i,prev_ind:overlap_size,:) = selected_patch(i,prev_ind:overlap_size,:);
 		end
-		% final_patch(:,1:overlap_size,:) = final_overlap;
 
 	elseif strcmp(overlap_type,'horizontal')
 		final_patch(overlap_size+1:patch_size,:,:) = selected_patch(overlap_size+1:patch_size,:,:);	
