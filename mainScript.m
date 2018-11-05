@@ -11,11 +11,11 @@ to_save = 0;
 %% Loading the pictures
 
 %% For GIF pictures, need to convert from index to rgb
-[texture_paper_pic,map] = imread('paper_data/3.gif');
+[texture_paper_pic,map] = imread('paper_data/S29.gif');
 texture_paper_pic = ind2rgb(texture_paper_pic,map);
 % original_pic = double(texture_paper_pic);
 
-texture_our_pic = imread('our_data/pommo.jpg');
+texture_our_pic = imread('our_data/crowd.jpg');
 original_pic = double(texture_our_pic)/255.0;
 
 [h,w,num_chan] = size(original_pic);
