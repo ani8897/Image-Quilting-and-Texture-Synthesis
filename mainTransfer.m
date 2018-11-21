@@ -11,13 +11,13 @@ to_save = 0;
 %% Loading the pictures
 
 % For GIF pictures, need to convert from index to rgb
-texture_pic = imread('transfer_data/fabric.jpg');
+texture_pic = imread('data/transfer/fabric.jpg');
 texture_pic = double(texture_pic)/255.0;
-% [texture_pic,map] = imread('transfer_data/choco.gif');
+% [texture_pic,map] = imread('data/transfer/choco.gif');
 % texture_pic = ind2rgb(texture_pic,map);
 % texture_pic = double(texture_pic);
 
-target_pic =  imread('transfer_data/Samj.jpg');
+target_pic =  imread('data/transfer/girl.jpg');
 target_pic = imresize(target_pic,0.25,'bicubic');
 
 target_pic = double(target_pic)/255.0;
@@ -124,6 +124,6 @@ for i = 1:i_limit
 end
 toc;
 close(f);
-imwrite(modified_pic,'Result.jpg');
+imwrite(modified_pic,'results/transfer/Result.jpg');
 
 saveFigure3(my_color_scale,texture_pic,target_old_pic,modified_pic,mid_name,title_name,file_name,1,to_save);
