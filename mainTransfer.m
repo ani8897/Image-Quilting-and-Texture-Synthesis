@@ -9,17 +9,16 @@ my_color_scale = [col_scale,col_scale,col_scale];
 to_save = 0;
 
 %% Loading the pictures
-
+tic;
 % For GIF pictures, need to convert from index to rgb
-texture_pic = imread('data/transfer/fabric.jpg');
+texture_pic = imread('transfer_data/fabric.jpg');
 texture_pic = double(texture_pic)/255.0;
-% [texture_pic,map] = imread('data/transfer/choco.gif');
+% [texture_pic,map] = imread('transfer_data/choco.gif');
 % texture_pic = ind2rgb(texture_pic,map);
 % texture_pic = double(texture_pic);
 
-target_pic =  imread('data/transfer/girl.jpg');
-target_pic = imresize(target_pic,0.25,'bicubic');
-
+target_pic =  imread('transfer_data/girl.jpg');
+% target_pic = imresize(target_pic,0.25,'bicubic');
 target_pic = double(target_pic)/255.0;
 
 [h,w,num_chan] = size(target_pic);
@@ -67,7 +66,7 @@ for i = 1:i_limit
 
 		if i==1 && j==1
 			target_patch = target_pic(1:patch_size,1:patch_size,:);
-			modified_pic(1:patch_size,1:patch_size,:) = getFirstTransferPatch(texture_pic,target_patch,patch_size,corr_type);
+			modified_pic(1:patch_size,1:patch_size,:) = getFirstTransferPatch(texture_pic,target_patch,patch_size,0.0,corr_type);
 
 		elseif i==1
 			start_ind = net_patch_size + (j-2)*net_patch_size;
@@ -124,6 +123,7 @@ for i = 1:i_limit
 end
 toc;
 close(f);
-imwrite(modified_pic,'results/transfer/Result.jpg');
+imwrite(modified_pic,'Result.jpg');
 
 saveFigure3(my_color_scale,texture_pic,target_old_pic,modified_pic,mid_name,title_name,file_name,1,to_save);
+toc;
