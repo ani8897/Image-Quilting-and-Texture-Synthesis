@@ -11,11 +11,14 @@ to_save = 0;
 %% Loading the pictures
 
 %% For GIF pictures, need to convert from index to rgb
-[texture_paper_pic,map] = imread('paper_data/S29.gif');
+input_name = '3';
+output_name = strcat(input_name,'.jpg');
+input_file = strcat(input_name,'.gif');
+[texture_paper_pic,map] = imread(strcat('paper_data/',input_file));
 texture_paper_pic = ind2rgb(texture_paper_pic,map);
 original_pic = double(texture_paper_pic);
 
-texture_our_pic = imread('our_data/crowd.jpg');
+% texture_our_pic = imread('our_data/crowd.jpg');
 % original_pic = double(texture_our_pic)/255.0;
 
 [h,w,num_chan] = size(original_pic);
@@ -93,5 +96,5 @@ for i = 1:i_limit
 	end
 end
 close(f);
-imwrite(modified_pic,'Result.jpg');
+imwrite(modified_pic,strcat('Quilting_Results/',output_name));
 saveFigure(my_color_scale,original_pic,modified_pic,title_name,file_name,1,to_save);
