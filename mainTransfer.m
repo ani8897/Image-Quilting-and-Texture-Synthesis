@@ -123,7 +123,7 @@ for i = 1:i_limit
 end
 
 close(f);
-imwrite(modified_pic,'results/transfer/Result.jpg');
+imwrite(modified_pic,'results/transfer/Intensity/Result.jpg');
 
 saveFigure3(my_color_scale,texture_pic,target_old_pic,modified_pic,mid_name,title_name,file_name,1,to_save);
 toc;

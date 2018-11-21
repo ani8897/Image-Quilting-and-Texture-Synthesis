@@ -11,7 +11,7 @@ to_save = 0;
 %% Loading the pictures
 
 %% For GIF pictures, need to convert from index to rgb
-% input_name = 'S14';
+% input_name = 'yogurt';
 % input_folder = 'paper/';
 % output_name = strcat(input_name,'.jpg');
 % input_file = strcat(input_name,'.gif');
@@ -20,7 +20,9 @@ to_save = 0;
 % texture_paper_pic = ind2rgb(texture_paper_pic,map);
 % original_pic = double(texture_paper_pic);
 
-input_name = 'crowd';
+%% For JPEG pictures
+
+input_name = 'green_plum';
 input_folder = 'own/';
 output_name = strcat(input_name,'.jpg');
 input_file = strcat(input_name,'.jpg');
@@ -97,7 +99,7 @@ for i = 1:i_limit
 			modified_pic(top_ind+1:top_ind+patch_size,left_ind+1:left_ind+patch_size,:) = final_patch;
 
 		end
-		stepnum = stepnum + 1;
+		stepnum = stepnum + 1;	
 		waitbar(stepnum/(i_limit*j_limit),f,"Quilting");
 	end
 end
