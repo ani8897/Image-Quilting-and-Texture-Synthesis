@@ -11,16 +11,21 @@ to_save = 0;
 %% Loading the pictures
 
 %% For GIF pictures, need to convert from index to rgb
-input_name = 'paper/3';
+% input_name = 'S14';
+% input_folder = 'paper/';
+% output_name = strcat(input_name,'.jpg');
+% input_file = strcat(input_name,'.gif');
+
+% [texture_paper_pic,map] = imread(strcat('data/',input_folder,input_file));
+% texture_paper_pic = ind2rgb(texture_paper_pic,map);
+% original_pic = double(texture_paper_pic);
+
+input_name = 'crowd';
+input_folder = 'own/';
 output_name = strcat(input_name,'.jpg');
-input_file = strcat(input_name,'.gif');
-
-[texture_paper_pic,map] = imread(strcat('data/',input_file));
-texture_paper_pic = ind2rgb(texture_paper_pic,map);
-original_pic = double(texture_paper_pic);
-
-% texture_our_pic = imread('data/our/crowd.jpg');
-% original_pic = double(texture_our_pic)/255.0;
+input_file = strcat(input_name,'.jpg');
+texture_our_pic = imread(strcat('data/',input_folder,input_file));
+original_pic = double(texture_our_pic)/255.0;
 
 [h,w,num_chan] = size(original_pic);
 file_name = "Result";
@@ -97,5 +102,5 @@ for i = 1:i_limit
 	end
 end
 close(f);
-imwrite(modified_pic,strcat('results/quilting/',output_name));
+imwrite(modified_pic,strcat('results/quilting/', input_folder, int2str(patch_size), '/', output_name));
 saveFigure(my_color_scale,original_pic,modified_pic,title_name,file_name,1,to_save);
