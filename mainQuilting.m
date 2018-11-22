@@ -11,23 +11,23 @@ to_save = 0;
 %% Loading the pictures
 
 %% For GIF pictures, need to convert from index to rgb
-% input_name = 'yogurt';
-% input_folder = 'paper/';
-% output_name = strcat(input_name,'.jpg');
-% input_file = strcat(input_name,'.gif');
+input_name = '11';    
+input_folder = 'paper/';
+output_name = strcat(input_name,'.jpg');
+input_file = strcat(input_name,'.gif');
 
-% [texture_paper_pic,map] = imread(strcat('data/',input_folder,input_file));
-% texture_paper_pic = ind2rgb(texture_paper_pic,map);
-% original_pic = double(texture_paper_pic);
+[texture_paper_pic,map] = imread(strcat('data/',input_folder,input_file));
+texture_paper_pic = ind2rgb(texture_paper_pic,map);
+original_pic = double(texture_paper_pic);
 
 %% For JPEG pictures
 
-input_name = 'green_plum';
-input_folder = 'own/';
-output_name = strcat(input_name,'.jpg');
-input_file = strcat(input_name,'.jpg');
-texture_our_pic = imread(strcat('data/',input_folder,input_file));
-original_pic = double(texture_our_pic)/255.0;
+% input_name = 'green_plum';
+% input_folder = 'own/';
+% output_name = strcat(input_name,'.jpg');
+% input_file = strcat(input_name,'.jpg');
+% texture_our_pic = imread(strcat('data/',input_folder,input_file));
+% original_pic = double(texture_our_pic)/255.0;
 
 [h,w,num_chan] = size(original_pic);
 file_name = "Result";

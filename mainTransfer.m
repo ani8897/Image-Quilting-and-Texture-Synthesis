@@ -11,13 +11,13 @@ to_save = 0;
 %% Loading the pictures
 tic;
 % For GIF pictures, need to convert from index to rgb
-texture_pic = imread('data/transfer/fabric.jpg');
+texture_pic = imread('data/transfer/neworange.jpg');
 texture_pic = double(texture_pic)/255.0;
-% [texture_pic,map] = imread('data/transfer/choco.gif');
+% [texture_pic,map] = imread('data/transfer/neworange_white.gif');
 % texture_pic = ind2rgb(texture_pic,map);
 % texture_pic = double(texture_pic);
 
-target_pic =  imread('data/transfer/girl.jpg');
+target_pic =  imread('data/transfer/newpotato.jpg');
 % target_pic = imresize(target_pic,0.25,'bicubic');
 target_pic = double(target_pic)/255.0;
 
@@ -28,7 +28,7 @@ title_name = "Modified Pic";
 
 %% Defining the parameters of our algorithm
 patch_size = 18;
-overlap_size = patch_size/6;
+overlap_size = patch_size/3;
 net_patch_size = patch_size-overlap_size;
 error_tolerance = 0.1;
 alph = 0.1;
