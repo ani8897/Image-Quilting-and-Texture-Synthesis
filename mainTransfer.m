@@ -27,11 +27,11 @@ mid_name = "Target";
 title_name = "Modified Pic";
 
 %% Defining the parameters of our algorithm
-patch_size = 18;
-overlap_size = patch_size/3;
+patch_size = 20;
+overlap_size = patch_size/4;
 net_patch_size = patch_size-overlap_size;
 error_tolerance = 0.1;
-alph = 0.1;
+alph = 0.2;
 num_iter = 1;
 corr_type = 'intensity';
 
@@ -121,7 +121,7 @@ for i = 1:i_limit
 		waitbar(stepnum/(i_limit*j_limit),f,"Transferring Texture");
 	end
 end
-
+ 
 close(f);
 imwrite(modified_pic,'results/transfer/Intensity/Result.jpg');
 
